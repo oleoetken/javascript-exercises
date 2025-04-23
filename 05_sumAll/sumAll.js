@@ -1,17 +1,18 @@
-let result = 0;
-
-const sumAll = function() {
-    for (let i = 1; i < 4 +1 ; i++) {
-        // console.log(i);
-        result += i;
-        
+const sumAll = function(min, max) {
+    if (!Number.isInteger(min) || !Number.isInteger(max)) return "ERROR";
+    if (min < 0 || max < 0) return "ERROR";
+    if (min > max) {
+        const temp = min;
+        min = max;
+        max = temp;
     }
-    // console.log(result);
-    return result;
-    
-};
-console.log(sumAll());
-sumAll();
 
+    let sum = 0;
+    for (let i = min; i <= max; i++) {
+        sum += i;
+    }
+    return sum;
+};
+sumAll(2, 4);
 // Do not edit below this line
 module.exports = sumAll;
